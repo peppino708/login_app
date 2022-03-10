@@ -130,3 +130,121 @@ Processing by DeviseTokenAuth::SessionsController#create as */*
 Completed 200 OK in 358ms (Views: 0.2ms | ActiveRecord: 5.4ms | Allocations: 9605)
 
 
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-03-11 02:40:46 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"test@example.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."provider" = ? LIMIT ?[0m  [["email", "test@example.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"8rX5jpLg3fEKWQShngBstg\":{\"token\":\"$2a$10$5CImg/JHtDXJ7ROEW/aEyO8w78w4XaiRr/J3JWI7juUG9R31vmdWS\",\"expiry\":1648140020,\"last_token\":\"$2a$10$hnu7h.rUYwiS4jli2XLXM.YFWFcyQB4eZ5oLdxW/YyKKxbeFMT7Uy\",\"updated_at\":\"2022-03-10T16:40:20Z\"},\"Ti3Ux2MjHHc511Q4ikbbGw\":{\"token\":\"$2a$10$0hWDNPgbQhPTR2hYhbwJIuz8w1cFBlRRoR/Bb8IN7qXnZbvisEDyi\",\"expiry\":1648140073,\"last_token\":\"$2a$10$zkFBIVizEcALex/N4IF2h.l9WySzMCY1tnMju.ox50/SKVN3Bj7FW\",\"updated_at\":\"2022-03-10T16:41:13Z\"},\"eeGUoJY1v_DsfWNwscLgKg\":{\"token\":\"$2a$10$/GdrzOGbZBpQURYpG/jmSeWJ50ek72.Hu0rF633IpLKEfXTW1MHRy\",\"expiry\":1648140380,\"last_token\":\"$2a$10$Z71VQdUG58V8h1gjNYvJ3OM39Kdpb8wWVDXy845sa4of0aoEVsT3e\",\"updated_at\":\"2022-03-10T16:46:20Z\"},\"GI7VpgNSBOkI3CFGd6pA9Q\":{\"token\":\"$2a$10$Rm7bHeMBSmwUUONbcIklTObshyiYqqKOT/v7B9MrOUuGwIqr2wkOm\",\"expiry\":1648140553,\"last_token\":\"$2a$10$nPSnH9zSNb5m7GlXdK.WcOg6zNhauaufEGgEviNRMT3.iqv7xVUky\",\"updated_at\":\"2022-03-10T16:49:13Z\"},\"REHDPIsSVkMB_Z21_Xkxag\":{\"token\":\"$2a$10$6SkCrdv8WyL58rghRT.4OOE6M78CMAhHV1xCiRxgMydtWO0lQItly\",\"expiry\":1648140578,\"last_token\":\"$2a$10$xSqj3gDjJexdcGSVGH2TbuVaieCfaDyZ.0WkfOwE9pbxW8F7GLsGK\",\"updated_at\":\"2022-03-10T16:49:38Z\"},\"1j1j7y9cbufxsIHKl19VVg\":{\"token\":\"$2a$10$1LScHNz9e9QaQHc/XpZojODNVVV6snPkTSWQNePCNnrEodMWJ/ASu\",\"expiry\":1648143647}}"], ["updated_at", "2022-03-10 17:40:47.226575"], ["id", 1]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"8rX5jpLg3fEKWQShngBstg\":{\"token\":\"$2a$10$5CImg/JHtDXJ7ROEW/aEyO8w78w4XaiRr/J3JWI7juUG9R31vmdWS\",\"expiry\":1648140020,\"last_token\":\"$2a$10$hnu7h.rUYwiS4jli2XLXM.YFWFcyQB4eZ5oLdxW/YyKKxbeFMT7Uy\",\"updated_at\":\"2022-03-10T16:40:20Z\"},\"Ti3Ux2MjHHc511Q4ikbbGw\":{\"token\":\"$2a$10$0hWDNPgbQhPTR2hYhbwJIuz8w1cFBlRRoR/Bb8IN7qXnZbvisEDyi\",\"expiry\":1648140073,\"last_token\":\"$2a$10$zkFBIVizEcALex/N4IF2h.l9WySzMCY1tnMju.ox50/SKVN3Bj7FW\",\"updated_at\":\"2022-03-10T16:41:13Z\"},\"eeGUoJY1v_DsfWNwscLgKg\":{\"token\":\"$2a$10$/GdrzOGbZBpQURYpG/jmSeWJ50ek72.Hu0rF633IpLKEfXTW1MHRy\",\"expiry\":1648140380,\"last_token\":\"$2a$10$Z71VQdUG58V8h1gjNYvJ3OM39Kdpb8wWVDXy845sa4of0aoEVsT3e\",\"updated_at\":\"2022-03-10T16:46:20Z\"},\"GI7VpgNSBOkI3CFGd6pA9Q\":{\"token\":\"$2a$10$Rm7bHeMBSmwUUONbcIklTObshyiYqqKOT/v7B9MrOUuGwIqr2wkOm\",\"expiry\":1648140553,\"last_token\":\"$2a$10$nPSnH9zSNb5m7GlXdK.WcOg6zNhauaufEGgEviNRMT3.iqv7xVUky\",\"updated_at\":\"2022-03-10T16:49:13Z\"},\"REHDPIsSVkMB_Z21_Xkxag\":{\"token\":\"$2a$10$6SkCrdv8WyL58rghRT.4OOE6M78CMAhHV1xCiRxgMydtWO0lQItly\",\"expiry\":1648140578,\"last_token\":\"$2a$10$xSqj3gDjJexdcGSVGH2TbuVaieCfaDyZ.0WkfOwE9pbxW8F7GLsGK\",\"updated_at\":\"2022-03-10T16:49:38Z\"},\"1j1j7y9cbufxsIHKl19VVg\":{\"token\":\"$2a$10$F/ZIpHabZNRCYgfqSWv/guUv77kgx7g3Van0FVCj8XRFV.AR3d1/e\",\"expiry\":1648143647,\"last_token\":\"$2a$10$1LScHNz9e9QaQHc/XpZojODNVVV6snPkTSWQNePCNnrEodMWJ/ASu\",\"updated_at\":\"2022-03-10T17:40:47Z\"}}"], ["updated_at", "2022-03-10 17:40:47.304879"], ["id", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 413ms (Views: 0.3ms | ActiveRecord: 6.6ms | Allocations: 23229)
+
+
+Started GET "/" for ::1 at 2022-03-11 02:42:20 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kankuranaoya/.rbenv/versions/2.6.9/lib/ruby/gems/2.6.0/gems/railties-6.1.4.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kankuranaoya/.rbenv/versions/2.6.9/lib/ruby/gems/2.6.0/gems/railties-6.1.4.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.0ms | Allocations: 305)
+Completed 200 OK in 34ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 1679)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-03-11 02:45:25 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as HTML
+  Parameters: {"name"=>"Naoya", "email"=>"708.baseball.ster@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"name"=>"Naoya", "email"=>"708.baseball.ster@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."provider" = ? LIMIT ?[0m  [["email", "708.baseball.ster@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["uid", "708.baseball.ster@gmail.com"], ["encrypted_password", "$2a$12$.ffLo8rwZQuIg6vsLas.L.Ga1l1Mhy.WmbkKc31unf6Pg2vlqyFLC"], ["name", "Naoya"], ["email", "708.baseball.ster@gmail.com"], ["created_at", "2022-03-10 17:45:25.540505"], ["updated_at", "2022-03-10 17:45:25.540505"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"cX_CVhCf8PM0DZVE2jcCXw\":{\"token\":\"$2a$10$lTdAB.sC9WbifQSqmKKuHeo4W0YRhPZw/iFpH3o9FE36LPL1LxTBa\",\"expiry\":1648143925}}"], ["updated_at", "2022-03-10 17:45:25.605343"], ["id", 2]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"cX_CVhCf8PM0DZVE2jcCXw\":{\"token\":\"$2a$10$36I5eLD.kt.4kiLQZ5x2cutCFg4NZmebeo2YO5WwB/7g4JT3Dhbka\",\"expiry\":1648143925,\"last_token\":\"$2a$10$lTdAB.sC9WbifQSqmKKuHeo4W0YRhPZw/iFpH3o9FE36LPL1LxTBa\",\"updated_at\":\"2022-03-10T17:45:25Z\"}}"], ["updated_at", "2022-03-10 17:45:25.675760"], ["id", 2]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 400ms (Views: 0.3ms | ActiveRecord: 7.8ms | Allocations: 19586)
+
+
+Started GET "/api/v1/auth/sessions" for ::1 at 2022-03-11 02:45:37 +0900
+Processing by Api::V1::Auth::SessionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "708.baseball.ster@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth/sessions_controller.rb:4:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"cX_CVhCf8PM0DZVE2jcCXw\":{\"token\":\"$2a$10$AbinS4r3vpEgywyXcks/qOrikwD2vioKx.Mudept/Xrwin.J2S8dS\",\"expiry\":1648143938,\"last_token\":\"$2a$10$36I5eLD.kt.4kiLQZ5x2cutCFg4NZmebeo2YO5WwB/7g4JT3Dhbka\",\"updated_at\":\"2022-03-10T17:45:37Z\"}}"], ["updated_at", "2022-03-10 17:45:38.035178"], ["id", 2]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 253ms (Views: 1.1ms | ActiveRecord: 4.3ms | Allocations: 5825)
+
+
+Started DELETE "/api/v1/auth/sign_out" for ::1 at 2022-03-11 02:45:40 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "708.baseball.ster@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", nil], ["updated_at", "2022-03-10 17:45:41.022354"], ["id", 2]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 164ms (Views: 0.3ms | ActiveRecord: 2.9ms | Allocations: 4240)
+
+
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-03-11 02:45:59 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"708.baseball.ster@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"708.baseball.ster@gmail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."provider" = ? LIMIT ?[0m  [["email", "708.baseball.ster@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"O-h4WCjk949OW8liqWmwIQ\":{\"token\":\"$2a$10$3.A7Lle/hC8nhMu4r1f9Ou9RBEnOJYSLwS.V6HfDH7j7N..23zJGW\",\"expiry\":1648143959}}"], ["updated_at", "2022-03-10 17:45:59.722840"], ["id", 2]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"O-h4WCjk949OW8liqWmwIQ\":{\"token\":\"$2a$10$p.tDcJsczGquwri7kUkif.uA3Cc/QP2S1.Kk0ijoy47IChnTcVRJe\",\"expiry\":1648143959,\"last_token\":\"$2a$10$3.A7Lle/hC8nhMu4r1f9Ou9RBEnOJYSLwS.V6HfDH7j7N..23zJGW\",\"updated_at\":\"2022-03-10T17:45:59Z\"}}"], ["updated_at", "2022-03-10 17:45:59.791169"], ["id", 2]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 369ms (Views: 0.2ms | ActiveRecord: 4.0ms | Allocations: 8871)
+
+
+Started GET "/api/v1/auth/sessions" for ::1 at 2022-03-11 02:46:03 +0900
+Processing by Api::V1::Auth::SessionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "708.baseball.ster@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth/sessions_controller.rb:4:in `index'
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"O-h4WCjk949OW8liqWmwIQ\":{\"token\":\"$2a$10$p.tDcJsczGquwri7kUkif.uA3Cc/QP2S1.Kk0ijoy47IChnTcVRJe\",\"expiry\":1648143959,\"last_token\":\"$2a$10$3.A7Lle/hC8nhMu4r1f9Ou9RBEnOJYSLwS.V6HfDH7j7N..23zJGW\",\"updated_at\":\"2022-03-10T17:46:04Z\"}}"], ["updated_at", "2022-03-10 17:46:04.045970"], ["id", 2]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 234ms (Views: 6.7ms | ActiveRecord: 5.9ms | Allocations: 5500)
+
+
+Started GET "/api/v1/auth/sessions" for ::1 at 2022-03-11 02:49:42 +0900
+Processing by Api::V1::Auth::SessionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "708.baseball.ster@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth/sessions_controller.rb:4:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"O-h4WCjk949OW8liqWmwIQ\":{\"token\":\"$2a$10$o0Ahj5FV46LtT3EbesukQupniy9ZlGvYpUE2.9PRZw5Ql5a1EJdgq\",\"expiry\":1648144182,\"last_token\":\"$2a$10$p.tDcJsczGquwri7kUkif.uA3Cc/QP2S1.Kk0ijoy47IChnTcVRJe\",\"updated_at\":\"2022-03-10T17:49:42Z\"}}"], ["updated_at", "2022-03-10 17:49:42.438466"], ["id", 2]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 130ms (Views: 0.5ms | ActiveRecord: 3.1ms | Allocations: 5552)
+
+
+Started DELETE "/api/v1/auth/sign_out" for ::1 at 2022-03-11 02:49:44 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "708.baseball.ster@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", nil], ["updated_at", "2022-03-10 17:49:44.531857"], ["id", 2]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 145ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 3482)
+
+
