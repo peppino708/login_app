@@ -346,3 +346,208 @@ Processing by DeviseTokenAuth::SessionsController#destroy as HTML
 Completed 200 OK in 80ms (Views: 0.2ms | ActiveRecord: 2.7ms | Allocations: 3413)
 
 
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-03-11 12:42:39 +0900
+  [1m[35m (8.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"708.baseball.ster@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"708.baseball.ster@gmail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."provider" = ? LIMIT ?[0m  [["email", "708.baseball.ster@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+Completed 401 Unauthorized in 301ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 21117)
+
+
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-03-11 12:42:49 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"708.baseball.ster@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"708.baseball.ster@gmail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."provider" = ? LIMIT ?[0m  [["email", "708.baseball.ster@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"N7vy8pDvIoqLvPVt5x7BSA\":{\"token\":\"$2a$10$BZe/CG9AjyYntaT5AU0KOu6zpYApQOOQ204Y3816S6vI7TY45pYja\",\"expiry\":1648179769}}"], ["updated_at", "2022-03-11 03:42:49.940305"], ["id", 2]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"N7vy8pDvIoqLvPVt5x7BSA\":{\"token\":\"$2a$10$1KdSje.DNtHMmHZlF9QOnOYpAxM9Ch2XJw/852xe1tBg6Fx1rLblG\",\"expiry\":1648179770,\"last_token\":\"$2a$10$BZe/CG9AjyYntaT5AU0KOu6zpYApQOOQ204Y3816S6vI7TY45pYja\",\"updated_at\":\"2022-03-11T03:42:49Z\"}}"], ["updated_at", "2022-03-11 03:42:50.022212"], ["id", 2]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 417ms (Views: 0.3ms | ActiveRecord: 5.4ms | Allocations: 9589)
+
+
+Started DELETE "/api/v1/auth/sign_out" for ::1 at 2022-03-11 19:01:30 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "708.baseball.ster@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", nil], ["updated_at", "2022-03-11 10:01:30.257469"], ["id", 2]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 101ms (Views: 0.2ms | ActiveRecord: 6.4ms | Allocations: 8068)
+
+
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-03-11 19:01:58 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"sakura@sakura.com", "password"=>"[FILTERED]", "session"=>{"email"=>"sakura@sakura.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."provider" = ? LIMIT ?[0m  [["email", "sakura@sakura.com"], ["provider", "email"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1126)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-03-11 19:02:24 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as HTML
+  Parameters: {"name"=>"Sakura", "email"=>"sakura@sakura.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"name"=>"Sakura", "email"=>"sakura@sakura.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."provider" = ? LIMIT ?[0m  [["email", "sakura@sakura.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Entity in 232ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 4755)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-03-11 19:02:36 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as HTML
+  Parameters: {"name"=>"Sakura", "email"=>"sakura@sakura.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"name"=>"Sakura", "email"=>"sakura@sakura.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."provider" = ? LIMIT ?[0m  [["email", "sakura@sakura.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["uid", "sakura@sakura.com"], ["encrypted_password", "$2a$12$KIwezEB6xPhY42XjRKSqhOkBPfopMTpxafzJYQf/6d1uHBVmOr9dq"], ["name", "Sakura"], ["email", "sakura@sakura.com"], ["created_at", "2022-03-11 10:02:37.114222"], ["updated_at", "2022-03-11 10:02:37.114222"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"U15eEdEqGhAyqaoF-8RXdw\":{\"token\":\"$2a$10$J7KAtlB2u6Spzr0mbVQ97.LvIRqi7hzgga1Rn5PnimDM9E8f9wwqq\",\"expiry\":1648202557}}"], ["updated_at", "2022-03-11 10:02:37.175654"], ["id", 4]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"U15eEdEqGhAyqaoF-8RXdw\":{\"token\":\"$2a$10$VgT/c2mxzSSPeCHYMtoO7ea7k0IcY87NWJ2Qg/MJ.AijrVwnbitBy\",\"expiry\":1648202557,\"last_token\":\"$2a$10$J7KAtlB2u6Spzr0mbVQ97.LvIRqi7hzgga1Rn5PnimDM9E8f9wwqq\",\"updated_at\":\"2022-03-11T10:02:37Z\"}}"], ["updated_at", "2022-03-11 10:02:37.248710"], ["id", 4]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 372ms (Views: 0.3ms | ActiveRecord: 9.9ms | Allocations: 11768)
+
+
+Started DELETE "/api/v1/auth/sign_out" for ::1 at 2022-03-11 19:02:42 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "sakura@sakura.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", nil], ["updated_at", "2022-03-11 10:02:42.311522"], ["id", 4]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 112ms (Views: 0.3ms | ActiveRecord: 3.1ms | Allocations: 3413)
+
+
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-03-11 19:02:52 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"sakura@sakura.com", "password"=>"[FILTERED]", "session"=>{"email"=>"sakura@sakura.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."provider" = ? LIMIT ?[0m  [["email", "sakura@sakura.com"], ["provider", "email"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"2nnMDYL1GW4k9plVu9q3hg\":{\"token\":\"$2a$10$DjxCzTULB4IoH940ljfFE.Th7coEuV0K13ldUOIPEomLRHl0NUSda\",\"expiry\":1648202572}}"], ["updated_at", "2022-03-11 10:02:52.861722"], ["id", 4]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"2nnMDYL1GW4k9plVu9q3hg\":{\"token\":\"$2a$10$fYARb.JWP1fo0KsoJB4I7uiEQcbnys7.zuq/9b2qfvTaUGJSSiGKO\",\"expiry\":1648202572,\"last_token\":\"$2a$10$DjxCzTULB4IoH940ljfFE.Th7coEuV0K13ldUOIPEomLRHl0NUSda\",\"updated_at\":\"2022-03-11T10:02:52Z\"}}"], ["updated_at", "2022-03-11 10:02:52.932628"], ["id", 4]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 362ms (Views: 0.2ms | ActiveRecord: 6.0ms | Allocations: 9604)
+
+
+Started GET "/api/v1/auth/sessions" for ::1 at 2022-03-11 19:02:59 +0900
+Processing by Api::V1::Auth::SessionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "sakura@sakura.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth/sessions_controller.rb:4:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"2nnMDYL1GW4k9plVu9q3hg\":{\"token\":\"$2a$10$1G5b1zpHuNz/KAbCp9493.Pr.mfY7WZbx4eDAVqkyK1kweo9FZk2.\",\"expiry\":1648202579,\"last_token\":\"$2a$10$fYARb.JWP1fo0KsoJB4I7uiEQcbnys7.zuq/9b2qfvTaUGJSSiGKO\",\"updated_at\":\"2022-03-11T10:02:59Z\"}}"], ["updated_at", "2022-03-11 10:02:59.208522"], ["id", 4]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 195ms (Views: 0.6ms | ActiveRecord: 3.5ms | Allocations: 5663)
+
+
+Started GET "/api/v1/auth/sessions" for ::1 at 2022-03-11 19:05:35 +0900
+Processing by Api::V1::Auth::SessionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "sakura@sakura.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth/sessions_controller.rb:4:in `index'
+Completed 200 OK in 115ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 691)
+
+
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-03-11 19:06:09 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"sakura@sakura.com", "password"=>"[FILTERED]", "session"=>{"email"=>"sakura@sakura.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."provider" = ? LIMIT ?[0m  [["email", "sakura@sakura.com"], ["provider", "email"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"2nnMDYL1GW4k9plVu9q3hg\":{\"token\":\"$2a$10$1G5b1zpHuNz/KAbCp9493.Pr.mfY7WZbx4eDAVqkyK1kweo9FZk2.\",\"expiry\":1648202579,\"last_token\":\"$2a$10$fYARb.JWP1fo0KsoJB4I7uiEQcbnys7.zuq/9b2qfvTaUGJSSiGKO\",\"updated_at\":\"2022-03-11T10:02:59Z\"},\"thXStAaXZkVqg95ie3drhw\":{\"token\":\"$2a$10$ozH2nVilQXQWJJlIzuvhLuyolJEU4jRNBgb4NAdirJlf7JybptWS6\",\"expiry\":1648202769}}"], ["updated_at", "2022-03-11 10:06:09.594226"], ["id", 4]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"2nnMDYL1GW4k9plVu9q3hg\":{\"token\":\"$2a$10$1G5b1zpHuNz/KAbCp9493.Pr.mfY7WZbx4eDAVqkyK1kweo9FZk2.\",\"expiry\":1648202579,\"last_token\":\"$2a$10$fYARb.JWP1fo0KsoJB4I7uiEQcbnys7.zuq/9b2qfvTaUGJSSiGKO\",\"updated_at\":\"2022-03-11T10:02:59Z\"},\"thXStAaXZkVqg95ie3drhw\":{\"token\":\"$2a$10$Jeb7p8EobJedQDAZKKeTiOhnaFN8g8S36NcGP9rtZ3WKhHl.y.WP6\",\"expiry\":1648202769,\"last_token\":\"$2a$10$ozH2nVilQXQWJJlIzuvhLuyolJEU4jRNBgb4NAdirJlf7JybptWS6\",\"updated_at\":\"2022-03-11T10:06:09Z\"}}"], ["updated_at", "2022-03-11 10:06:09.663957"], ["id", 4]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 363ms (Views: 0.2ms | ActiveRecord: 5.3ms | Allocations: 9065)
+
+
+Started GET "/api/v1/auth/sessions" for ::1 at 2022-03-11 19:06:22 +0900
+Processing by Api::V1::Auth::SessionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "sakura@sakura.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth/sessions_controller.rb:4:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"2nnMDYL1GW4k9plVu9q3hg\":{\"token\":\"$2a$10$1G5b1zpHuNz/KAbCp9493.Pr.mfY7WZbx4eDAVqkyK1kweo9FZk2.\",\"expiry\":1648202579,\"last_token\":\"$2a$10$fYARb.JWP1fo0KsoJB4I7uiEQcbnys7.zuq/9b2qfvTaUGJSSiGKO\",\"updated_at\":\"2022-03-11T10:02:59Z\"},\"thXStAaXZkVqg95ie3drhw\":{\"token\":\"$2a$10$jV.ZIthzI6qykMy7BaLmYOzrm/AJ/MLGhQZt0xVLtoadIgiqafw2e\",\"expiry\":1648202782,\"last_token\":\"$2a$10$Jeb7p8EobJedQDAZKKeTiOhnaFN8g8S36NcGP9rtZ3WKhHl.y.WP6\",\"updated_at\":\"2022-03-11T10:06:22Z\"}}"], ["updated_at", "2022-03-11 10:06:22.432728"], ["id", 4]]
+  [1m[36mTRANSACTION (28.6ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 366ms (Views: 3.3ms | ActiveRecord: 31.3ms | Allocations: 5680)
+
+
+Started GET "/api/v1/auth/sessions" for ::1 at 2022-03-11 19:06:24 +0900
+Processing by Api::V1::Auth::SessionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "sakura@sakura.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth/sessions_controller.rb:4:in `index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"2nnMDYL1GW4k9plVu9q3hg\":{\"token\":\"$2a$10$1G5b1zpHuNz/KAbCp9493.Pr.mfY7WZbx4eDAVqkyK1kweo9FZk2.\",\"expiry\":1648202579,\"last_token\":\"$2a$10$fYARb.JWP1fo0KsoJB4I7uiEQcbnys7.zuq/9b2qfvTaUGJSSiGKO\",\"updated_at\":\"2022-03-11T10:02:59Z\"},\"thXStAaXZkVqg95ie3drhw\":{\"token\":\"$2a$10$jV.ZIthzI6qykMy7BaLmYOzrm/AJ/MLGhQZt0xVLtoadIgiqafw2e\",\"expiry\":1648202782,\"last_token\":\"$2a$10$Jeb7p8EobJedQDAZKKeTiOhnaFN8g8S36NcGP9rtZ3WKhHl.y.WP6\",\"updated_at\":\"2022-03-11T10:06:25Z\"}}"], ["updated_at", "2022-03-11 10:06:25.022461"], ["id", 4]]
+  [1m[36mTRANSACTION (17.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 247ms (Views: 0.5ms | ActiveRecord: 19.5ms | Allocations: 5654)
+
+
+Started DELETE "/api/v1/auth/sign_out" for ::1 at 2022-03-11 19:06:27 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "sakura@sakura.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"2nnMDYL1GW4k9plVu9q3hg\":{\"token\":\"$2a$10$1G5b1zpHuNz/KAbCp9493.Pr.mfY7WZbx4eDAVqkyK1kweo9FZk2.\",\"expiry\":1648202579,\"last_token\":\"$2a$10$fYARb.JWP1fo0KsoJB4I7uiEQcbnys7.zuq/9b2qfvTaUGJSSiGKO\",\"updated_at\":\"2022-03-11T10:02:59Z\"}}"], ["updated_at", "2022-03-11 10:06:27.188571"], ["id", 4]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 142ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 3608)
+
+
+Started GET "/" for ::1 at 2022-03-11 19:26:32 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kankuranaoya/.rbenv/versions/2.6.9/lib/ruby/gems/2.6.0/gems/railties-6.1.4.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kankuranaoya/.rbenv/versions/2.6.9/lib/ruby/gems/2.6.0/gems/railties-6.1.4.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 17.7ms | Allocations: 305)
+Completed 200 OK in 24ms (Views: 21.4ms | Allocations: 1603)
+
+
+Started GET "/api/v1/members" for ::1 at 2022-03-11 19:26:59 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/members"):
+  
+Started GET "/rails/info/routes" for ::1 at 2022-03-11 19:27:39 +0900
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/kankuranaoya/.rbenv/versions/2.6.9/lib/ruby/gems/2.6.0/gems/railties-6.1.4.7/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/kankuranaoya/.rbenv/versions/2.6.9/lib/ruby/gems/2.6.0/gems/railties-6.1.4.7/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/kankuranaoya/.rbenv/versions/2.6.9/lib/ruby/gems/2.6.0/gems/actionpack-6.1.4.7/lib/action_dispatch/middleware/templates/routes/_route.html.erb [42 times] (Duration: 36.6ms | Allocations: 4781)
+  Rendered /Users/kankuranaoya/.rbenv/versions/2.6.9/lib/ruby/gems/2.6.0/gems/actionpack-6.1.4.7/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 3.1ms | Allocations: 677)
+  Rendered /Users/kankuranaoya/.rbenv/versions/2.6.9/lib/ruby/gems/2.6.0/gems/railties-6.1.4.7/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 52.4ms | Allocations: 8182)
+  Rendered layout /Users/kankuranaoya/.rbenv/versions/2.6.9/lib/ruby/gems/2.6.0/gems/railties-6.1.4.7/lib/rails/templates/layouts/application.html.erb (Duration: 56.7ms | Allocations: 8423)
+Completed 200 OK in 68ms (Views: 63.4ms | Allocations: 9510)
+
+
