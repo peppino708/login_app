@@ -248,3 +248,101 @@ Processing by DeviseTokenAuth::SessionsController#destroy as HTML
 Completed 200 OK in 145ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 3482)
 
 
+Started POST "/api/v1/auth" for ::1 at 2022-03-11 02:51:56 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as HTML
+  Parameters: {"name"=>"Kaito", "email"=>"kaito@kaito.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"name"=>"Kaito", "email"=>"kaito@kaito.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."provider" = ? LIMIT ?[0m  [["email", "kaito@kaito.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["uid", "kaito@kaito.com"], ["encrypted_password", "$2a$12$FEEDUWq2E9JTtbcCWGQfrOOc/8VF9hX8Qa7ymc/3EjKVh/JM0SMoq"], ["name", "Kaito"], ["email", "kaito@kaito.com"], ["created_at", "2022-03-10 17:51:56.461873"], ["updated_at", "2022-03-10 17:51:56.461873"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"td9JDTs6cubE72jyahAGHA\":{\"token\":\"$2a$10$CqceMHE.ppveihZwN425AeH3cJeHTTMF.MIr/yyI.aEZSxn3pQDG.\",\"expiry\":1648144316}}"], ["updated_at", "2022-03-10 17:51:56.523999"], ["id", 3]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"td9JDTs6cubE72jyahAGHA\":{\"token\":\"$2a$10$D4Ef4SMTMHQiUe.yTshXxuMW3L6NMAL2YQpdJEsWdbiDbjctNF7n6\",\"expiry\":1648144316,\"last_token\":\"$2a$10$CqceMHE.ppveihZwN425AeH3cJeHTTMF.MIr/yyI.aEZSxn3pQDG.\",\"updated_at\":\"2022-03-10T17:51:56Z\"}}"], ["updated_at", "2022-03-10 17:51:56.591706"], ["id", 3]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 374ms (Views: 0.2ms | ActiveRecord: 6.5ms | Allocations: 11612)
+
+
+Started GET "/api/v1/auth/sessions" for ::1 at 2022-03-11 02:52:00 +0900
+Processing by Api::V1::Auth::SessionsController#index as HTML
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "kaito@kaito.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth/sessions_controller.rb:4:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"td9JDTs6cubE72jyahAGHA\":{\"token\":\"$2a$10$D4Ef4SMTMHQiUe.yTshXxuMW3L6NMAL2YQpdJEsWdbiDbjctNF7n6\",\"expiry\":1648144316,\"last_token\":\"$2a$10$CqceMHE.ppveihZwN425AeH3cJeHTTMF.MIr/yyI.aEZSxn3pQDG.\",\"updated_at\":\"2022-03-10T17:52:00Z\"}}"], ["updated_at", "2022-03-10 17:52:00.882042"], ["id", 3]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 154ms (Views: 0.6ms | ActiveRecord: 6.9ms | Allocations: 7897)
+
+
+Started DELETE "/api/v1/auth/sign_out" for ::1 at 2022-03-11 02:52:01 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "kaito@kaito.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", nil], ["updated_at", "2022-03-10 17:52:01.971834"], ["id", 3]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 3387)
+
+
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-03-11 02:52:12 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"kaito@kaito.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kaito@kaito.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."provider" = ? LIMIT ?[0m  [["email", "kaito@kaito.com"], ["provider", "email"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"P0GJN8zTVVA4p3PMSw3BPA\":{\"token\":\"$2a$10$aldlwOwT8n7JH0RtfVzm2.dG34D1fUp7qjfbGyLjvgBC45xMEK0Z6\",\"expiry\":1648144332}}"], ["updated_at", "2022-03-10 17:52:12.810279"], ["id", 3]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"P0GJN8zTVVA4p3PMSw3BPA\":{\"token\":\"$2a$10$IFGvB0K4F7olzUywF73iqu3f2FyczHhzNc6fjgsvwczVdfpn1eqWi\",\"expiry\":1648144332,\"last_token\":\"$2a$10$aldlwOwT8n7JH0RtfVzm2.dG34D1fUp7qjfbGyLjvgBC45xMEK0Z6\",\"updated_at\":\"2022-03-10T17:52:12Z\"}}"], ["updated_at", "2022-03-10 17:52:12.893543"], ["id", 3]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 377ms (Views: 0.2ms | ActiveRecord: 4.0ms | Allocations: 8840)
+
+
+Started DELETE "/api/v1/auth/sign_out" for ::1 at 2022-03-11 02:52:18 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "kaito@kaito.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", nil], ["updated_at", "2022-03-10 17:52:18.718372"], ["id", 3]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 82ms (Views: 0.7ms | ActiveRecord: 2.3ms | Allocations: 3412)
+
+
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-03-11 02:52:28 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"708.baseball.ster@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"708.baseball.ster@gmail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."provider" = ? LIMIT ?[0m  [["email", "708.baseball.ster@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"k0jFlOWI48t1Pd3o9bVTfw\":{\"token\":\"$2a$10$w9J.nZ8FJyel7WxQ1WMLnua6Kbz.TsLXd1N6tWqyMOP13r9bmWF9q\",\"expiry\":1648144349}}"], ["updated_at", "2022-03-10 17:52:29.081231"], ["id", 2]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ? [0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", "{\"k0jFlOWI48t1Pd3o9bVTfw\":{\"token\":\"$2a$10$DbiVDsp2SZfXABkBBm3fsOUKoZKgtAzib9GnVUI6KBlUxmjg/KKOm\",\"expiry\":1648144349,\"last_token\":\"$2a$10$w9J.nZ8FJyel7WxQ1WMLnua6Kbz.TsLXd1N6tWqyMOP13r9bmWF9q\",\"updated_at\":\"2022-03-10T17:52:29Z\"}}"], ["updated_at", "2022-03-10 17:52:29.152110"], ["id", 2]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 372ms (Views: 0.2ms | ActiveRecord: 6.0ms | Allocations: 8846)
+
+
+Started DELETE "/api/v1/auth/sign_out" for ::1 at 2022-03-11 02:52:31 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "708.baseball.ster@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["tokens", nil], ["updated_at", "2022-03-10 17:52:31.606807"], ["id", 2]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 80ms (Views: 0.2ms | ActiveRecord: 2.7ms | Allocations: 3413)
+
+
